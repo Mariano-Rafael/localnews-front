@@ -24,7 +24,9 @@ function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4"><br></br></h1>
+      <h1 className="text-3xl font-bold mb-4">
+        <br></br>
+      </h1>
       {loading ? (
         <div className="text-center text-gray-600 py-4">
           Carregando notícias...

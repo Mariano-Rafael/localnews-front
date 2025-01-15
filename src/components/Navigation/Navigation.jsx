@@ -1,9 +1,20 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Se você for usar rotas
+import { LoginForm } from "../LoginForm";
 
 function Navigation() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Novo estado para controlar o login
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    // Aqui você pode adicionar lógica adicional após o login, como salvar o token no localStorage
+    console.log("Login realizado com sucesso no Navigation.");
+  };
+
   return (
-    <nav className="bg-slate-100 w-full p-2 h-11">
+    <nav className="bg-gray-100 w-full p-2 h-11">
       {" "}
       {/* Estilos do menu de navegação */}
       <div className="container mx-auto flex justify-center">
@@ -64,15 +75,29 @@ function Navigation() {
           </li>
         </ul>
         <div className="absolute right-4 flex space-x-2">
-          {" "}
-          {/* Botões de login/registrar */}
-          <button className="bg-white hover:bg-black hover:text-white text-black px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out">
-            Entrar
-          </button>
-          <button className="bg-black hover:bg-white hover:text-black text-white px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out">
-            Registrar
-          </button>
+          {!isLoggedIn ? ( // Renderiza os botões de login/registrar ou mensagem de boas vindas
+            <>
+              <button
+                className="bg-white hover:bg-black hover:text-white text-black px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out"
+                onClick={() => setShowLoginModal(true)}
+              >
+                Entrar
+              </button>
+              <button className="bg-black hover:bg-white hover:text-black text-white px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out">
+                Registrar
+              </button>
+            </>
+          ) : (
+            <span className="text-black">Bem vindo!</span> // Mensagem de boas vindas
+          )}
         </div>
+        {showLoginModal && (
+          <LoginForm
+            onClose={() => setShowLoginModal(false)}
+            onLoginSuccess={handleLoginSuccess}
+          />
+        )}{" "}
+        {/* Renderiza o modal se showLoginModal for true */}
       </div>
     </nav>
   );

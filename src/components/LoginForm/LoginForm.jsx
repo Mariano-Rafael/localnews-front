@@ -22,7 +22,7 @@ function LoginForm({ onClose, onLoginSuccess }) {
 
       if (data.status) {
         setMessage(data.message);
-        const loggedInUsername = data.username;
+        const loggedInUsername = data.data;
         onLoginSuccess(loggedInUsername); // Chamada corrigida: APENAS UMA VEZ
         onClose();
       } else {
@@ -48,9 +48,9 @@ function LoginForm({ onClose, onLoginSuccess }) {
         {" "}
         {/* Modal */}
         <div className="mt-3 text-center">
-          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+          <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-black">
             <svg
-              className="h-6 w-6 text-green-600"
+              className="h-6 w-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -64,8 +64,8 @@ function LoginForm({ onClose, onLoginSuccess }) {
               ></path>
             </svg>
           </div>
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Login</h3>
-          <div className="mt-2 px-7 py-3">
+          <h3 className="text-lg leading-6 font-medium text-black"><br></br>Informe nome de usuário e senha:</h3>
+          <div className="mt-2 px-7 py-1">
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -83,7 +83,7 @@ function LoginForm({ onClose, onLoginSuccess }) {
               />
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+                className="bg-black hover:bg-white text-white hover:text-black border border-black shadow-2xl transition duration-700 ease-in-out font-bold py-2 px-4 rounded w-full"
               >
                 Entrar
               </button>

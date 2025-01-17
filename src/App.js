@@ -1,22 +1,24 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home"; // Importa o componente Home
+import { Home } from "./pages/Home";
 import { Footer } from "./components/Footer";
-import { Header } from "./components/Header"; // Importe o Header
-import { Navigation } from "./components/Navigation"; // Importe o Navigation
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
+import Horarios from "./pages/Horarios";
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App flex flex-col min-h-screen">
         <Header />
         <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />{" "}
-          {/* Rota para a página inicial */}
-          {/* Outras rotas aqui */}
-        </Routes>
-        <Footer /> {/* Renderize o Footer aqui */}
+        <main className="main-content flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/horarios" element={<Horarios />} />{" "}
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   );

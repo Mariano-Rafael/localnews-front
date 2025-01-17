@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import { LoginForm } from "../LoginForm";
 import { RegisterForm } from "../RegisterForm";
 
@@ -7,7 +9,12 @@ function Navigation() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInUsername, setLoggedInUsername] = useState("");
-  const [showRegisterModal, setShowRegisterModal] = useState(false); // Novo estado para o modal de registro
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const navigate = useNavigate();
+
+  const handleBusClick = () => {
+    navigate("/horarios");
+  };
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -51,12 +58,12 @@ function Navigation() {
             </a>
           </li>
           <li>
-            <a
-              href="onibus"
+            <Link
+              to="/horarios"
               className="transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded block hover:translate-y-[-2px]"
             >
               Ônibus
-            </a>
+            </Link>
           </li>
           <li>
             <a

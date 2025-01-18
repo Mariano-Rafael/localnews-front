@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { BusSchedule } from "../components/BusSchedule";
-import { RouteSelector } from "../components/RouteSelector";
-import { allRoutes } from "../constants/rotas";
+import { BusSchedule } from "../../components/BusSchedule";
+import { RouteSelector } from "../../components/RouteSelector";
+import { allRoutes } from "../../constants/rotas";
 
 function Horarios() {
   const [linha, setLinha] = useState("");

@@ -74,12 +74,12 @@ function Navigation() {
             </a>
           </li>
           <li>
-            <a
-              href="sobre"
+            <Link
+              to="clima"
               className="transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded block hover:translate-y-[-2px]"
             >
               Sobre Nós
-            </a>
+            </Link>
           </li>
           <li>
             <a

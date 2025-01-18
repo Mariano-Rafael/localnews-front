@@ -45,22 +45,87 @@ function Climate({ city }) {
   }
 
   return (
-    <div className="pt-5">
-      <h2 className="text-xl">Previsão do tempo em {climateData.city}</h2>
-      <br></br>
-      <p>Temperatura: {climateData.temp}°C</p>
-      <p className="pb-3">Descrição: {climateData.description}</p>
-
-      <h3 className="text-xl">Previsão para os próximos dias:</h3>
-      <ul className="pt-1">
-        {climateData.forecast.map((forecastDay) => (
-          <li className="pt-1" key={forecastDay.date}>
-            {forecastDay.weekday}, {forecastDay.date}: {forecastDay.description}{" "}
-            (Max: {forecastDay.max}°C, Min: {forecastDay.min}°C, Chuva:{" "}
-            {forecastDay.rain}mm)
-          </li>
-        ))}
-      </ul>
+    <div className="bg-white rounded-lg shadow-md p-6 mt-4">
+      {" "}
+      {/* Container com fundo branco, bordas arredondadas e sombra */}
+      <h2 className="text-2xl font-bold mb-2">
+        Clima em {climateData.city}
+      </h2>{" "}
+      {/* Título maior e em negrito */}
+      <div className="grid grid-cols-2 gap-4">
+        {" "}
+        {/* Grid para organizar as informações */}
+        <div>
+          <p className="text-lg">Temperatura: {climateData.temp}°C</p>
+          <p>Descrição: {climateData.description}</p>
+          <p>Umidade: {climateData.humidity}%</p>
+          <p>Velocidade do Vento: {climateData.wind_speedy}</p>
+          <p>Data: {climateData.date}</p>
+          <p>Hora: {climateData.time}</p>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src={`https://assets.hgbrasil.com/weather/icons/conditions/${climateData.condition_slug}.svg`}
+            alt={`Ícone de ${climateData.description}`}
+            className="w-20 h-20 mr-4"
+          />
+          <img
+            src={`https://assets.hgbrasil.com/weather/icons/moon/${climateData.moon_phase}.png`}
+            alt={`Fase da lua: ${climateData.moon_phase}`}
+            className="w-20 h-20 mr-4"
+          />
+        </div>
+      </div>
+      <h3 className="text-xl font-semibold mt-4 mb-2">
+        Previsão para os próximos dias:
+      </h3>
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Data
+              </th>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Dia da Semana
+              </th>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Máxima
+              </th>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Mínima
+              </th>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Condição
+              </th>
+              <th className=" bg-gray-100 px-4 py-2 text-left text-gray-700">
+                Chuva (mm)
+              </th>
+              <th className=" bg-gray-100 px-1 py-1 text-left text-gray-700"></th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {climateData.forecast.map((forecastDay) => (
+              <tr key={forecastDay.date}>
+                <td className="px-4 py-2">{forecastDay.date}</td>
+                <td className="px-4 py-2">{forecastDay.weekday}</td>
+                <td className="px-4 py-2">{forecastDay.max}°C</td>
+                <td className="px-4 py-2">{forecastDay.min}°C</td>
+                <td className="px-4 py-2">{forecastDay.description}</td>
+                <td className="px-4 py-2">{forecastDay.rain}</td>
+                <td className="px-4 py-2">
+                  {" "}
+                  <img
+                    src={`https://assets.hgbrasil.com/weather/icons/conditions/${forecastDay.condition}.svg`}
+                    alt={`Ícone de ${climateData.description}`}
+                    className="w-12 h-12 mx-auto"
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

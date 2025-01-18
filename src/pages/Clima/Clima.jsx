@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Climate } from "../../components/Climate";
 
 function Clima() {
-  const [city, setCity] = useState("");
-  const [searchCity, setSearchCity] = useState("");
+  const [city, setCity] = useState("Curitiba");
+  const [searchCity, setSearchCity] = useState("Curitiba");
 
   const handleInputChange = (event) => {
     setCity(event.target.value);

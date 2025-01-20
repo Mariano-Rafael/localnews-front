@@ -4,8 +4,9 @@ import { Home } from "./pages/Home";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
-import { Horarios } from "./pages/Horarios"; // Importa com chaves
-import { Clima } from "./pages/Clima"; // Importa com chaves
+import { Horarios } from "./pages/Horarios";
+import { Clima } from "./pages/Clima";
+import { Servicos } from "./pages/Servicos";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/clima" element={<Clima />} />
+            <Route path="/servicos" element={<Servicos />} />
             <Route path="/horarios" element={<Horarios />} />{" "}
           </Routes>
         </main>

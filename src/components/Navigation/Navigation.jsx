@@ -53,10 +53,9 @@ function Navigation() {
   }, []);
 
   const handleLoginSuccess = (username) => {
-
     setIsLoggedIn(true);
     setLoggedInUsername(username);
-    localStorage.setItem("username", username); 
+    localStorage.setItem("username", username);
   };
 
   const handleLogout = () => {
@@ -85,7 +84,7 @@ function Navigation() {
           >
             <Link
               to="#"
-              className="flex items-center nav-link transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded block hover:translate-y-[-2px]"
+              className="flex items-center nav-link transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded hover:translate-y-[-2px]"
             >
               Serviços
               <svg
@@ -104,7 +103,7 @@ function Navigation() {
               </svg>
             </Link>
             <ul
-              className={`absolute left-0 mt-2 bg-white text-gray-800 rounded-md shadow-lg w-48 z-10 
+              className={`absolute left-0 max-w-24 mt-2 bg-white text-gray-800 shadow-lg w-48 z-10 
                             ${isServicesOpen ? "block" : "hidden"}`}
             >
               <li>
@@ -118,7 +117,7 @@ function Navigation() {
               <li>
                 <Link
                   to="/anuncios"
-                  className="block px-4 py-2 hover:bg-gray-100 nav-link"
+                  className="block px-4 py-2  hover:bg-gray-100 nav-link"
                 >
                   Anúncios
                 </Link>

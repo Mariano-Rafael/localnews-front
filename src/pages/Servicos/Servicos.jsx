@@ -41,8 +41,6 @@ function Servicos() {
 
   return (
     <div>
-      <h1>Serviços</h1>
-      <h2>Enquetes</h2>
       {polls.map((poll) => (
         <Poll key={poll.id} poll={poll} />
       ))}

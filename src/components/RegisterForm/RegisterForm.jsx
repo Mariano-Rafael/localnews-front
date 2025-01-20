@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm({ onClose, onLoginSuccess }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,7 +27,9 @@ function RegisterForm({ onClose, onLoginSuccess }) {
       if (response.ok) {
         setMessage("Usuário registrado com sucesso!");
 
-        // Simula um login automático após o registro:
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+
         const loginResponse = await fetch("http://localhost:8080/users/login", {
           method: "POST",
           headers: {
@@ -34,9 +40,9 @@ function RegisterForm({ onClose, onLoginSuccess }) {
 
         const loginData = await loginResponse.json();
 
-        if (loginResponse.ok && loginData.status) {
-          const loggedInUsername = loginData.data;
-          onLoginSuccess(loggedInUsername);
+        if (data.status) {
+          login(loginData);
+          navigate("/");
           onClose();
         } else {
           setMessage(loginData.message || "Erro ao fazer login automático.");
@@ -112,7 +118,7 @@ function RegisterForm({ onClose, onLoginSuccess }) {
                 Cadastrar
               </button>
             </form>
-            {message && <p className="text-red-500 mt-2">{message}</p>}
+            {message && <p className="text-black mt-2">{message}</p>}
           </div>
         </div>
       </div>

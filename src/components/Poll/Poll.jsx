@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CommentBox } from "../CommentBox";
+import { AuthContext } from "../../context/AuthContext";
 
 function Poll({ poll }) {
+  const { userId, username } = useContext(AuthContext);
   const [voted, setVoted] = useState(false);
   const [error, setError] = useState(null);
 
@@ -26,9 +29,15 @@ function Poll({ poll }) {
     return <div>Enquete não encontrada.</div>;
   }
 
+  if (!userId) {
+    return (
+      <div>Você precisa estar logado para interagir com esta enquete.</div>
+    );
+  }
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-4">
-      <h2 className="p-3 text-center">{poll.question}</h2>
+      <h2 className="p-3 text-center text-xl">{poll.question}</h2>
       <div className="flex space-x-4 align-middle justify-center">
         {poll.options.map((option) => (
           <button
@@ -49,6 +58,8 @@ function Poll({ poll }) {
           Obrigado por votar!
         </p>
       )}
+      {}
+      <CommentBox pollId={poll.id} userId={userId} username={username} />
     </div>
   );
 }

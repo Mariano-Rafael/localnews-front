@@ -1,29 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-function LoginForm({ onClose, onLoginSuccess }) {
-  // Adiciona props para controlar o modal e o sucesso do login
+function LoginForm({ onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(""); // Mensagem de feedback
+  const [message, setMessage] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Evita o recarregamento da página
+    event.preventDefault();
 
     try {
       const response = await fetch("http://localhost:8080/users/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
 
       if (data.status) {
-        setMessage(data.message);
-        const loggedInUsername = data.data;
-        onLoginSuccess(loggedInUsername); // Chamada corrigida: APENAS UMA VEZ
+        login(data);
+        navigate("/");
         onClose();
       } else {
         setMessage(data.message);
@@ -40,7 +40,6 @@ function LoginForm({ onClose, onLoginSuccess }) {
       onClick={onClose}
     >
       {" "}
-      {/* Overlay */}
       <div
         className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
         onClick={(e) => e.stopPropagation()}
@@ -90,8 +89,7 @@ function LoginForm({ onClose, onLoginSuccess }) {
                 Entrar
               </button>
             </form>
-            {message && <p className="text-red-500 mt-2">{message}</p>}{" "}
-            {/* Exibe a mensagem */}
+            {message && <p className="text-black mt-2">{message}</p>}
           </div>
         </div>
       </div>

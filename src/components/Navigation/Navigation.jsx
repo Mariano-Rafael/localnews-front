@@ -143,24 +143,23 @@ function Navigation() {
           </li>
           <li>
             <Link
-              to="/"
+              to="/sobre"
               className="transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded block hover:translate-y-[-2px]"
             >
               Sobre Nós
             </Link>
           </li>
           <li>
-            <a
-              href="/"
+            <Link
+              to="/contatos"
               className="transition duration-300 ease-in-out hover:bg-gray-300 px-2 py-1 rounded block hover:translate-y-[-2px]"
             >
-              Contato
-            </a>
+              Fale Conosco
+            </Link>
           </li>
         </ul>
         <div className="absolute right-4 flex space-x-2 items-center">
           {" "}
-
           {isLoggedIn && loggedInUsername ? (
             <>
               <span className="text-black mr-2">Bem vindo, {username}!</span>

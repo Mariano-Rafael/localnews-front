@@ -7,6 +7,8 @@ import { Navigation } from "./components/Navigation";
 import { Horarios } from "./pages/Horarios";
 import { Clima } from "./pages/Clima";
 import { Servicos } from "./pages/Servicos";
+import { AboutUs } from "./pages/AboutUs";
+import { ContactUs } from "./pages/ContactUs";
 import { AuthProvider } from "./context/AuthContext";
 import LoginForm from "./components/LoginForm/LoginForm";
 import Poll from "./components/Poll/Poll";
@@ -26,6 +28,8 @@ function App() {
               <Route path="/clima" element={<Clima />} />
               <Route path="/servicos" element={<Servicos />} />
               <Route path="/horarios" element={<Horarios />} />{" "}
+              <Route path="/sobre" element={<AboutUs />} />
+              <Route path="/contatos" element={<ContactUs />} />
             </Routes>
           </main>
           <Footer />

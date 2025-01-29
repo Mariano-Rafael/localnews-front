@@ -90,7 +90,7 @@ function CommentBox({ pollId, userId, username }) {
         />
         <button
           type="submit"
-          className="mt-2 bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded"
+          className="mt-2 bg-blacklogo hover:bg-gray-800 text-white font-bold py-2 px-4 rounded"
         >
           Enviar
         </button>

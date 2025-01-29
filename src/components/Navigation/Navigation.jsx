@@ -162,9 +162,11 @@ function Navigation() {
           {" "}
           {isLoggedIn && loggedInUsername ? (
             <>
-              <span className="text-black mr-2">Bem vindo, {username}!</span>
+              <span className="text-blacklogologologo mr-2">
+                Bem vindo, {username}!
+              </span>
               <button
-                className="bg-black hover:bg-white hover:text-black text-white px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out"
+                className="bg-black hover:bg-white hover:text-blacklogo text-white px-2 h-7 border border-blacklogo shadow-2xl transition duration-700 ease-in-out"
                 onClick={() => {
                   logout();
                   navigate("/");
@@ -176,13 +178,13 @@ function Navigation() {
           ) : (
             <>
               <button
-                className="text-sm bg-white hover:bg-black hover:text-white text-black px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out"
+                className="text-sm bg-white hover:bg-blacklogo hover:text-white text-blacklogo px-2 h-7 border border-blacklogo shadow-2xl transition duration-700 ease-in-out"
                 onClick={() => setShowLoginModal(true)}
               >
                 Entrar
               </button>
               <button
-                className="text-sm bg-black hover:bg-white hover:text-black text-white px-2 h-7 border border-black shadow-2xl transition duration-700 ease-in-out"
+                className="text-sm bg-blacklogo hover:bg-white hover:text-blacklogo text-white px-2 h-7 border border-blacklogo shadow-2xl transition duration-700 ease-in-out"
                 onClick={() => setShowRegisterModal(true)}
               >
                 Cadastre-se

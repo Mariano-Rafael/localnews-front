@@ -27,8 +27,7 @@ function RegisterForm({ onClose, onLoginSuccess }) {
       if (response.ok) {
         setMessage("Usuário registrado com sucesso!");
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
         const loginResponse = await fetch("http://localhost:8080/users/login", {
           method: "POST",

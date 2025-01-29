@@ -46,15 +46,8 @@ function Climate({ city }) {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-4">
-      {" "}
-      {/* Container com fundo branco, bordas arredondadas e sombra */}
-      <h2 className="text-2xl font-bold mb-2">
-        Clima em {climateData.city}
-      </h2>{" "}
-      {/* Título maior e em negrito */}
+      <h2 className="text-2xl font-bold mb-2">Clima em {climateData.city}</h2>{" "}
       <div className="grid grid-cols-2 gap-4">
-        {" "}
-        {/* Grid para organizar as informações */}
         <div>
           <p className="text-lg">Temperatura: {climateData.temp}°C</p>
           <p>Descrição: {climateData.description}</p>

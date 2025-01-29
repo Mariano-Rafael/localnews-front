@@ -46,8 +46,6 @@ function BusSchedule({ linha, diaDaSemana }) {
 
   return (
     <div className="overflow-y-auto max-h-screen max-w-6xl border mx-auto w-3/4">
-      {" "}
-      {/* Adicionado scroll e altura máxima */}
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>

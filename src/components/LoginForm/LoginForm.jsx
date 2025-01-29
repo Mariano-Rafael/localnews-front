@@ -63,7 +63,7 @@ function LoginForm({ onClose }) {
               ></path>
             </svg>
           </div>
-          <h3 className="text-lg leading-6 font-medium text-black">
+          <h3 className="text-lg leading-6 font-medium text-blacklogo">
             <br></br>Informe seu nome de usuário e senha:
           </h3>
           <div className="mt-2 px-7 py-1">
@@ -84,7 +84,7 @@ function LoginForm({ onClose }) {
               />
               <button
                 type="submit"
-                className="bg-black hover:bg-white text-white hover:text-black border border-black shadow-2xl transition duration-700 ease-in-out font-bold py-2 px-4 rounded w-full"
+                className="bg-blacklogo hover:bg-white text-white hover:text-black border border-blacklogo shadow-2xl transition duration-700 ease-in-out font-bold py-2 px-4 rounded w-full"
               >
                 Entrar
               </button>

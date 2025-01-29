@@ -1,16 +1,11 @@
 import React from "react";
-import logo from "./logo.png"; // Importe sua imagem
+import logo from "./logo-gray.png";
 
 function Header() {
   return (
-    <header className="bg-black w-full h-20 top-0">
-      {" "}
-      {/* Estilos do cabeçalho */}
-      <div className="container mx-auto h-20 flex justify-center items-center">
-        {" "}
-        {/* Container centralizado */}
-        <img src={logo} alt="Logo" className="object-contain h-48 w-96" />{" "}
-        {/* Imagem centralizada */}
+    <header className="bg-white w-full h-22 top-0">
+      <div className="container mx-auto h-22 flex justify-center items-center">
+        <img src={logo} alt="Logo" className="object-contain h-46 w-96" />
       </div>
     </header>
   );
